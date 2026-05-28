@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test: ¿Es fácil comprarte? | Kevin De La Zota</title>
+  <title>Test: ¿Tu inmobiliaria está perdiendo leads? | Kevin De La Zota</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,8 +28,8 @@
       --maybe-bg: #fdf6e3;
       --no-color: #b03a2e;
       --no-bg: #fdf0ee;
-      --radius: 12px;
-      --shadow: 0 2px 16px rgba(2,58,191,0.08);
+      --radius: 14px;
+      --shadow: 0 2px 20px rgba(2,58,191,0.08);
     }
 
     html { scroll-behavior: smooth; }
@@ -42,170 +42,114 @@
       min-height: 100vh;
     }
 
-    /* ─── NAV ─── */
-    nav {
-      background: var(--navy);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 66px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .logo-icon {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 0.85rem;
-      color: white;
-      letter-spacing: -0.5px;
-      flex-shrink: 0;
-    }
-
-    .logo-text {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: #ffffff;
-      letter-spacing: -0.2px;
-      line-height: 1.2;
-    }
-
-    .logo-text span {
-      display: block;
-      font-weight: 400;
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: rgba(255,255,255,0.65);
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--accent); }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: white;
-      border-radius: 2px;
-    }
-
-    .mobile-menu {
-      display: none;
-      background: var(--navy);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding: 16px 24px;
-    }
-
-    .mobile-menu.open { display: block; }
-    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-    .mobile-menu ul a { text-decoration: none; color: rgba(255,255,255,0.75); font-size: 0.95rem; font-weight: 500; }
-
     /* ─── HERO ─── */
     .hero {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 72px 24px 48px;
+      background: var(--navy);
+      padding: 64px 24px 56px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(2,150,223,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(2,58,191,0.22) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .badge {
       display: inline-block;
-      background: var(--tag-bg);
-      color: var(--accent-dark);
-      font-size: 0.72rem;
+      background: rgba(2,150,223,0.18);
+      color: var(--accent);
+      font-size: 0.7rem;
       font-weight: 700;
-      padding: 6px 16px;
+      padding: 6px 18px;
       border-radius: 20px;
-      letter-spacing: 0.8px;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 22px;
-      border: 1px solid var(--border);
+      margin-bottom: 24px;
+      border: 1px solid rgba(2,150,223,0.3);
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(1.9rem, 5vw, 2.9rem);
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1.2;
       letter-spacing: -0.5px;
-      margin-bottom: 12px;
-      color: var(--navy);
+      margin-bottom: 16px;
+      color: #ffffff;
     }
 
     .hero h1 .highlight {
       color: var(--accent);
-      position: relative;
     }
 
     .hero .subhead {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 32px;
-      font-style: italic;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 0;
+      font-weight: 400;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.65;
     }
 
-    .hero .intro-box {
+    /* ─── STORY BANNER ─── */
+    .story-banner {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 24px;
+      transform: translateY(-28px);
+    }
+
+    .story-box {
       background: var(--white);
       border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      border-radius: 8px;
-      padding: 20px 24px;
-      text-align: left;
-      font-size: 0.95rem;
-      color: var(--text);
-      line-height: 1.7;
+      border-left: 5px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 24px 28px;
       box-shadow: var(--shadow);
     }
 
-    .hero .intro-box strong { color: var(--accent-dark); }
+    .story-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .story-box p {
+      font-size: 0.93rem;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    .story-box strong { color: var(--accent-dark); }
+    .story-box em { color: var(--no-color); font-style: normal; font-weight: 600; }
 
     /* ─── QUIZ ─── */
     .quiz-wrapper {
-      max-width: 720px;
+      max-width: 700px;
       margin: 0 auto;
       padding: 0 24px 80px;
     }
@@ -227,10 +171,10 @@
     }
 
     .progress-label {
-      font-size: 0.78rem;
+      font-size: 0.77rem;
       color: var(--text-muted);
       text-align: right;
-      margin-bottom: 36px;
+      margin-bottom: 40px;
       font-weight: 500;
     }
 
@@ -240,14 +184,14 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .section-number {
       background: linear-gradient(135deg, var(--accent-dark), var(--accent));
       color: white;
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -255,6 +199,7 @@
       font-size: 0.85rem;
       font-weight: 700;
       flex-shrink: 0;
+      box-shadow: 0 3px 10px rgba(2,150,223,0.3);
     }
 
     .section-title {
@@ -263,7 +208,7 @@
       color: var(--navy);
     }
 
-    /* ─── QUESTION CARDS ─── */
+    /* ─── CARDS ─── */
     .question-card {
       background: var(--card-bg);
       border: 1.5px solid var(--border);
@@ -276,15 +221,15 @@
 
     .question-card.answered {
       border-color: var(--accent);
-      box-shadow: 0 2px 16px rgba(2,150,223,0.13);
+      box-shadow: 0 2px 18px rgba(2,150,223,0.14);
     }
 
     .question-text {
-      font-size: 0.93rem;
+      font-size: 0.92rem;
       font-weight: 500;
       color: var(--text);
       margin-bottom: 16px;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .options {
@@ -302,7 +247,7 @@
       background: var(--bg);
       cursor: pointer;
       font-family: 'Poppins', sans-serif;
-      font-size: 0.83rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: var(--text-muted);
       text-align: center;
@@ -315,46 +260,32 @@
       background: var(--accent-light);
     }
 
-    .option-btn.selected-no {
-      background: var(--no-bg);
-      border-color: var(--no-color);
-      color: var(--no-color);
-    }
-
-    .option-btn.selected-maybe {
-      background: var(--maybe-bg);
-      border-color: var(--maybe-color);
-      color: var(--maybe-color);
-    }
-
-    .option-btn.selected-yes {
-      background: var(--yes-bg);
-      border-color: var(--yes-color);
-      color: var(--yes-color);
-    }
+    .option-btn.selected-no     { background: var(--no-bg);    border-color: var(--no-color);    color: var(--no-color); }
+    .option-btn.selected-maybe  { background: var(--maybe-bg); border-color: var(--maybe-color); color: var(--maybe-color); }
+    .option-btn.selected-yes    { background: var(--yes-bg);   border-color: var(--yes-color);   color: var(--yes-color); }
 
     /* ─── CTA ─── */
-    .cta-wrap { text-align: center; margin-top: 40px; }
+    .cta-wrap { text-align: center; margin-top: 44px; }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--accent-dark), var(--accent));
       color: white;
       border: none;
-      padding: 16px 44px;
-      border-radius: 8px;
+      padding: 18px 52px;
+      border-radius: 10px;
       font-family: 'Poppins', sans-serif;
       font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
       transition: opacity 0.2s, transform 0.15s;
-      box-shadow: 0 4px 20px rgba(2,150,223,0.3);
+      box-shadow: 0 6px 24px rgba(2,150,223,0.35);
       letter-spacing: 0.2px;
     }
 
     .btn-primary:hover {
       opacity: 0.9;
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(2,58,191,0.3);
+      box-shadow: 0 8px 28px rgba(2,58,191,0.35);
     }
 
     .btn-primary:disabled {
@@ -365,9 +296,9 @@
     }
 
     .cta-hint {
-      font-size: 0.78rem;
+      font-size: 0.77rem;
       color: var(--text-muted);
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     /* ─── RESULTS ─── */
@@ -376,8 +307,8 @@
       background: var(--card-bg);
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
-      padding: 40px 32px;
-      margin-top: 40px;
+      padding: 44px 32px;
+      margin-top: 44px;
       box-shadow: var(--shadow);
       text-align: center;
       animation: fadeUp 0.5s ease;
@@ -386,12 +317,12 @@
     .results-section.visible { display: block; }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
+      from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     .result-score {
-      font-size: 4rem;
+      font-size: 4.5rem;
       font-weight: 800;
       background: linear-gradient(135deg, var(--accent-dark), var(--accent));
       -webkit-background-clip: text;
@@ -410,7 +341,7 @@
 
     .result-badge {
       display: inline-block;
-      padding: 8px 22px;
+      padding: 8px 24px;
       border-radius: 999px;
       font-size: 0.88rem;
       font-weight: 700;
@@ -431,8 +362,8 @@
 
     .result-description {
       color: var(--text-muted);
-      font-size: 0.93rem;
-      line-height: 1.75;
+      font-size: 0.92rem;
+      line-height: 1.8;
       max-width: 520px;
       margin: 0 auto 28px;
     }
@@ -441,17 +372,17 @@
       text-align: left;
       background: var(--bg);
       border-radius: 10px;
-      padding: 20px 24px;
+      padding: 22px 24px;
       margin-bottom: 28px;
       border: 1px solid var(--border);
     }
 
     .result-areas h4 {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.9px;
       margin-bottom: 14px;
     }
 
@@ -463,41 +394,66 @@
       font-size: 0.88rem;
     }
 
-    .area-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
+    .area-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
     .dot-red    { background: var(--no-color); }
     .dot-yellow { background: #e6ac00; }
     .dot-green  { background: var(--yes-color); }
 
-    .btn-retry {
-      background: transparent;
-      border: 2px solid var(--accent);
-      color: var(--accent-dark);
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
+    /* ─── CTA RESULT ─── */
+    .result-cta-box {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+      text-align: center;
     }
 
-    .btn-retry:hover {
-      background: var(--accent-dark);
-      border-color: var(--accent-dark);
-      color: white;
+    .result-cta-box p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
     }
+
+    .result-cta-box p strong { color: var(--accent); }
+
+    .btn-cta {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      color: white;
+      padding: 14px 36px;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+      box-shadow: 0 4px 18px rgba(2,150,223,0.35);
+    }
+
+    .btn-cta:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    .btn-retry {
+      background: transparent;
+      border: 2px solid var(--border);
+      color: var(--text-muted);
+      padding: 11px 26px;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+
+    .btn-retry:hover { border-color: var(--accent); color: var(--accent-dark); }
 
     /* ─── CLOSING ─── */
     .closing {
-      max-width: 720px;
+      max-width: 700px;
       margin: 0 auto;
-      padding: 16px 24px 64px;
+      padding: 0 24px 64px;
     }
 
     .closing-box {
@@ -511,131 +467,80 @@
 
     .closing-box::before {
       content: '';
-      position: absolute;
-      top: -60px; right: -60px;
+      position: absolute; top: -60px; right: -60px;
       width: 200px; height: 200px;
       background: radial-gradient(circle, rgba(2,150,223,0.2) 0%, transparent 70%);
       border-radius: 50%;
     }
-
     .closing-box::after {
       content: '';
-      position: absolute;
-      bottom: -40px; left: -40px;
+      position: absolute; bottom: -40px; left: -40px;
       width: 160px; height: 160px;
       background: radial-gradient(circle, rgba(2,58,191,0.25) 0%, transparent 70%);
       border-radius: 50%;
     }
 
-    .closing-box p {
-      font-size: 1.35rem;
+    .closing-box .closing-quote {
+      font-size: 0.72rem;
       font-weight: 700;
-      line-height: 1.55;
-      max-width: 500px;
-      margin: 0 auto;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 14px;
+      position: relative; z-index: 1;
+    }
+
+    .closing-box p {
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 20px;
       color: rgba(255,255,255,0.9);
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
     }
 
     .closing-box span { color: var(--accent); }
 
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--navy);
-      border-top: 1px solid rgba(255,255,255,0.07);
-      padding: 32px 24px;
+    .closing-box .closing-sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+      margin-bottom: 0;
+      position: relative; z-index: 1;
     }
-
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-copy {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.4);
-    }
-
-    .footer-nav { display: flex; gap: 20px; list-style: none; }
-    .footer-nav a {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.45);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-nav a:hover { color: var(--accent); }
-
-    .footer-socials { display: flex; gap: 12px; }
-    .footer-socials a {
-      color: rgba(255,255,255,0.45);
-      transition: color 0.2s;
-      display: flex;
-    }
-    .footer-socials a:hover { color: var(--accent); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 620px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .hero { padding: 48px 20px 32px; }
+      .hero { padding: 48px 20px 44px; }
       .options { flex-direction: column; }
       .option-btn { min-width: unset; }
-      .closing-box { padding: 30px 24px; }
+      .closing-box { padding: 32px 22px; }
       .closing-box p { font-size: 1.1rem; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .results-section { padding: 32px 20px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="logo">
-      <div class="logo-icon">KZ</div>
-      <div class="logo-text">
-        Kevin De La Zota
-        <span>Consultor IA</span>
-      </div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Sobre mí</a></li>
-      <li><a href="#">Newsletter</a></li>
-      <li><a href="#">Contacto</a></li>
-      <li><a href="#">Blog</a></li>
-    </ul>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Sobre mí</a></li>
-    <li><a href="#">Newsletter</a></li>
-    <li><a href="#">Contacto</a></li>
-    <li><a href="#">Blog</a></li>
-  </ul>
-</div>
-
 <!-- ─── HERO ─── -->
 <section class="hero">
-  <div class="badge">Test rápido de Marketing Mínimo Viable</div>
-  <h1>Test: ¿Es <span class="highlight">fácil comprarte</span>?</h1>
-  <p class="subhead">chan chan chan</p>
-  <div class="intro-box">
-    <strong>Muchos negocios NO pierden clientes por falta de talento.</strong><br />
-    Los pierden porque nadie entiende qué venden. Este test te ayuda a descubrir si tu negocio es fácil de comprar — o si sin darte cuenta estás poniendo obstáculos en el camino de tus clientes.
+  <div class="hero-inner">
+    <div class="badge">Test para Directores de Ventas Inmobiliarias</div>
+    <h1>¿Tu inmobiliaria está<br/><span class="highlight">perdiendo leads</span> sin saberlo?</h1>
+    <p class="subhead">Como Armando, puede que tu marketing funcione perfectamente... pero tu velocidad de respuesta esté regalando clientes a la competencia.</p>
   </div>
 </section>
+
+<!-- ─── STORY BANNER ─── -->
+<div class="story-banner">
+  <div class="story-box">
+    <div class="story-label">La historia de Armando</div>
+    <p>
+      Armando es Director de Ventas en <strong>Vive Inmobiliaria</strong>. Un día, su estrategia de marketing funcionó demasiado bien: los leads llegaron a cientos. Pero descubrió algo crítico — <em>el interés en internet se pierde en minutos</em>. Contrató asesores, pero los leads nocturnos y de fines de semana seguían perdiéndose. Hasta que su amigo Rick le reveló el secreto: <strong>un Agente de IA que responde en 5 segundos, atiende 100 personas a la vez y nunca duerme.</strong>
+    </p>
+  </div>
+</div>
 
 <!-- ─── QUIZ ─── -->
 <div class="quiz-wrapper">
@@ -649,33 +554,33 @@
   <div class="quiz-section">
     <div class="section-header">
       <div class="section-number">1</div>
-      <div class="section-title">¿Tu cliente reconoce lo que ofreces?</div>
+      <div class="section-title">Velocidad de respuesta</div>
     </div>
 
     <div class="question-card" id="qcard-1">
-      <div class="question-text">¿Puedes describir el problema que resuelves en una sola frase que tu cliente usaría?</div>
+      <div class="question-text">¿Respondes a todos tus leads dentro de los primeros 5 minutos, sin importar la hora del día?</div>
       <div class="options">
         <button class="option-btn" data-q="1" data-v="1" onclick="answer(this)">No</button>
-        <button class="option-btn" data-q="1" data-v="2" onclick="answer(this)">Más o menos</button>
-        <button class="option-btn" data-q="1" data-v="3" onclick="answer(this)">Sí, totalmente</button>
+        <button class="option-btn" data-q="1" data-v="2" onclick="answer(this)">A veces</button>
+        <button class="option-btn" data-q="1" data-v="3" onclick="answer(this)">Siempre</button>
       </div>
     </div>
 
     <div class="question-card" id="qcard-2">
-      <div class="question-text">¿Si tu cliente ideal ve tu perfil, pensaría: «eso es exactamente lo que me está pasando»?</div>
+      <div class="question-text">¿Tu equipo atiende mensajes los 7 días de la semana, incluyendo noches y fines de semana?</div>
       <div class="options">
         <button class="option-btn" data-q="2" data-v="1" onclick="answer(this)">No</button>
-        <button class="option-btn" data-q="2" data-v="2" onclick="answer(this)">Más o menos</button>
-        <button class="option-btn" data-q="2" data-v="3" onclick="answer(this)">Sí, totalmente</button>
+        <button class="option-btn" data-q="2" data-v="2" onclick="answer(this)">A veces</button>
+        <button class="option-btn" data-q="2" data-v="3" onclick="answer(this)">Siempre</button>
       </div>
     </div>
 
     <div class="question-card" id="qcard-3">
-      <div class="question-text">¿Tu mensaje es tan específico que automáticamente deja fuera a quien no es tu cliente?</div>
+      <div class="question-text">¿Sabes exactamente cuántos leads pierde tu empresa cada mes por respuestas fuera de horario o tardías?</div>
       <div class="options">
         <button class="option-btn" data-q="3" data-v="1" onclick="answer(this)">No</button>
-        <button class="option-btn" data-q="3" data-v="2" onclick="answer(this)">Más o menos</button>
-        <button class="option-btn" data-q="3" data-v="3" onclick="answer(this)">Sí, totalmente</button>
+        <button class="option-btn" data-q="3" data-v="2" onclick="answer(this)">Lo estimo</button>
+        <button class="option-btn" data-q="3" data-v="3" onclick="answer(this)">Sí, lo mido</button>
       </div>
     </div>
   </div>
@@ -684,33 +589,33 @@
   <div class="quiz-section">
     <div class="section-header">
       <div class="section-number">2</div>
-      <div class="section-title">¿Por qué escogerte a ti y no a nadie más?</div>
+      <div class="section-title">Eficiencia de tu equipo</div>
     </div>
 
     <div class="question-card" id="qcard-4">
-      <div class="question-text">Si alguien compara tu perfil con tres consultores, ¿tu enfoque se ve diferente?</div>
+      <div class="question-text">¿Tus asesores de ventas invierten la mayor parte de su tiempo cerrando negocios, no contestando chats iniciales?</div>
       <div class="options">
         <button class="option-btn" data-q="4" data-v="1" onclick="answer(this)">No</button>
-        <button class="option-btn" data-q="4" data-v="2" onclick="answer(this)">Más o menos</button>
-        <button class="option-btn" data-q="4" data-v="3" onclick="answer(this)">Sí, totalmente</button>
+        <button class="option-btn" data-q="4" data-v="2" onclick="answer(this)">Parcialmente</button>
+        <button class="option-btn" data-q="4" data-v="3" onclick="answer(this)">Sí</button>
       </div>
     </div>
 
     <div class="question-card" id="qcard-5">
-      <div class="question-text">¿Puedes explicar por qué tu solución funciona mejor que la alternativa más común?</div>
+      <div class="question-text">¿Tienes un proceso claro para filtrar automáticamente leads curiosos de los que realmente quieren comprar o invertir?</div>
       <div class="options">
         <button class="option-btn" data-q="5" data-v="1" onclick="answer(this)">No</button>
-        <button class="option-btn" data-q="5" data-v="2" onclick="answer(this)">Más o menos</button>
-        <button class="option-btn" data-q="5" data-v="3" onclick="answer(this)">Sí, totalmente</button>
+        <button class="option-btn" data-q="5" data-v="2" onclick="answer(this)">Parcialmente</button>
+        <button class="option-btn" data-q="5" data-v="3" onclick="answer(this)">Sí</button>
       </div>
     </div>
 
     <div class="question-card" id="qcard-6">
-      <div class="question-text">¿Tu ventaja se entiende sin tener que agendar una llamada?</div>
+      <div class="question-text">¿Tus costos de atención siguen siendo rentables cuando tu inversión en marketing se duplica y llegan el doble de leads?</div>
       <div class="options">
         <button class="option-btn" data-q="6" data-v="1" onclick="answer(this)">No</button>
-        <button class="option-btn" data-q="6" data-v="2" onclick="answer(this)">Más o menos</button>
-        <button class="option-btn" data-q="6" data-v="3" onclick="answer(this)">Sí, totalmente</button>
+        <button class="option-btn" data-q="6" data-v="2" onclick="answer(this)">No estoy seguro</button>
+        <button class="option-btn" data-q="6" data-v="3" onclick="answer(this)">Sí</button>
       </div>
     </div>
   </div>
@@ -719,41 +624,41 @@
   <div class="quiz-section">
     <div class="section-header">
       <div class="section-number">3</div>
-      <div class="section-title">¿Le dejas fácil el camino a la acción a tu cliente?</div>
+      <div class="section-title">Escalabilidad del negocio</div>
     </div>
 
     <div class="question-card" id="qcard-7">
-      <div class="question-text">¿Tu página o perfil explica claramente qué obtiene el cliente, cuánto tarda y cuánto cuesta?</div>
+      <div class="question-text">¿Puedes triplicar tu volumen de leads mañana sin necesidad de contratar más personal de atención?</div>
       <div class="options">
         <button class="option-btn" data-q="7" data-v="1" onclick="answer(this)">No</button>
-        <button class="option-btn" data-q="7" data-v="2" onclick="answer(this)">Más o menos</button>
-        <button class="option-btn" data-q="7" data-v="3" onclick="answer(this)">Sí, totalmente</button>
+        <button class="option-btn" data-q="7" data-v="2" onclick="answer(this)">Tal vez</button>
+        <button class="option-btn" data-q="7" data-v="3" onclick="answer(this)">Sí</button>
       </div>
     </div>
 
     <div class="question-card" id="qcard-8">
-      <div class="question-text">Después de 5 minutos, ¿tu cliente podría explicar tu servicio a otra persona?</div>
+      <div class="question-text">¿Las agendas de tus agentes se llenan de forma automática sin que ellos gestionen los primeros mensajes?</div>
       <div class="options">
         <button class="option-btn" data-q="8" data-v="1" onclick="answer(this)">No</button>
-        <button class="option-btn" data-q="8" data-v="2" onclick="answer(this)">Más o menos</button>
-        <button class="option-btn" data-q="8" data-v="3" onclick="answer(this)">Sí, totalmente</button>
+        <button class="option-btn" data-q="8" data-v="2" onclick="answer(this)">Parcialmente</button>
+        <button class="option-btn" data-q="8" data-v="3" onclick="answer(this)">Sí</button>
       </div>
     </div>
 
     <div class="question-card" id="qcard-9">
-      <div class="question-text">¿Existe un siguiente paso claro que no sea «agenda una llamada»?</div>
+      <div class="question-text">¿Tu proceso de atención funciona igual de bien con 10 leads simultáneos que con 500?</div>
       <div class="options">
         <button class="option-btn" data-q="9" data-v="1" onclick="answer(this)">No</button>
-        <button class="option-btn" data-q="9" data-v="2" onclick="answer(this)">Más o menos</button>
-        <button class="option-btn" data-q="9" data-v="3" onclick="answer(this)">Sí, totalmente</button>
+        <button class="option-btn" data-q="9" data-v="2" onclick="answer(this)">No estoy seguro</button>
+        <button class="option-btn" data-q="9" data-v="3" onclick="answer(this)">Sí</button>
       </div>
     </div>
   </div>
 
   <!-- CTA -->
   <div class="cta-wrap">
-    <button class="btn-primary" id="btnResult" onclick="showResult()" disabled>Ver mi resultado</button>
-    <p class="cta-hint" id="ctaHint">Responde todas las preguntas para ver tu resultado</p>
+    <button class="btn-primary" id="btnResult" onclick="showResult()" disabled>Ver mi diagnóstico</button>
+    <p class="cta-hint" id="ctaHint">Responde todas las preguntas para ver tu diagnóstico</p>
   </div>
 
   <!-- Results -->
@@ -764,7 +669,8 @@
     <div class="result-title" id="resultTitle"></div>
     <div class="result-description" id="resultDescription"></div>
     <div class="result-areas" id="resultAreas"></div>
-    <button class="btn-retry" onclick="resetQuiz()">↺ Volver a hacer el test</button>
+    <div class="result-cta-box" id="resultCta"></div>
+    <button class="btn-retry" onclick="resetQuiz()">↺ Repetir diagnóstico</button>
   </div>
 
 </div>
@@ -772,46 +678,20 @@
 <!-- ─── CLOSING ─── -->
 <div class="closing">
   <div class="closing-box">
-    <p>Los negocios creen que necesitan <span>más contenido</span>.<br />Pero en realidad necesitan <span>más claridad</span>.</p>
+    <div class="closing-quote">La clave de Rick</div>
+    <p>Las inmobiliarias no pierden clientes por <span>falta de leads</span>.<br/>Los pierden por <span>falta de velocidad</span>.</p>
+    <p class="closing-sub">Un Agente de IA responde en 5 segundos · atiende 100 chats a la vez · nunca duerme</p>
   </div>
 </div>
-
-<!-- ─── FOOTER ─── -->
-<footer>
-  <div class="footer-inner">
-    <span class="footer-copy">© 2024 Kevin De La Zota. Todos los derechos reservados.</span>
-    <ul class="footer-nav">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Sobre mí</a></li>
-      <li><a href="#">Newsletter</a></li>
-      <li><a href="#">Contacto</a></li>
-      <li><a href="#">Blog</a></li>
-    </ul>
-    <div class="footer-socials">
-      <!-- LinkedIn -->
-      <a href="#" aria-label="LinkedIn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-      </a>
-      <!-- Instagram -->
-      <a href="#" aria-label="Instagram">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-</footer>
 
 <script>
   const answers = {};
   const TOTAL = 9;
 
-  const sectionScores = [
-    { label: "¿Tu cliente reconoce lo que ofreces?", qs: [1, 2, 3] },
-    { label: "¿Por qué escogerte a ti?",             qs: [4, 5, 6] },
-    { label: "¿Le dejas fácil el camino al cliente?", qs: [7, 8, 9] },
+  const sections = [
+    { label: "Velocidad de respuesta",    qs: [1, 2, 3] },
+    { label: "Eficiencia del equipo",     qs: [4, 5, 6] },
+    { label: "Escalabilidad del negocio", qs: [7, 8, 9] },
   ];
 
   function answer(btn) {
@@ -836,29 +716,32 @@
     const ready = count === TOTAL;
     document.getElementById('btnResult').disabled = !ready;
     document.getElementById('ctaHint').textContent = ready
-      ? '¡Listo! Haz clic para ver tu resultado.'
-      : 'Responde todas las preguntas para ver tu resultado';
+      ? '¡Listo! Haz clic para ver tu diagnóstico.'
+      : 'Responde todas las preguntas para ver tu diagnóstico';
   }
 
   function showResult() {
     const total = Object.values(answers).reduce((a, b) => a + b, 0);
-    let badgeText, badgeClass, titleText, descText;
+    let badgeText, badgeClass, titleText, descText, ctaHTML;
 
     if (total <= 15) {
-      badgeText = 'Tu negocio es difícil de comprar';
+      badgeText = 'Operación con fricción crítica';
       badgeClass = 'badge-low';
-      titleText  = 'Hay trabajo claro por delante';
-      descText   = 'Tu marketing necesita más claridad antes que más contenido. Los clientes potenciales probablemente llegan a tu perfil y se van sin entender exactamente qué ofreces ni cómo contratarte. La buena noticia: esto tiene solución.';
+      titleText  = 'Estás perdiendo ventas todos los días';
+      descText   = 'Tu inmobiliaria tiene el mismo problema que tenía Armando antes de conocer a Rick. Los leads llegan, pero la lentitud en la respuesta y los horarios muertos están regalando clientes a tu competencia. Cada hora sin responder es dinero que se va.';
+      ctaHTML    = `<p>Exactamente como Rick le explicó a Armando: <strong>no necesitas más asesores, necesitas trabajar más inteligente.</strong> Un Agente de IA puede cambiar tu operación desde hoy.</p><a href="https://www.kevindelazota.com" class="btn-cta" target="_blank">Quiero saber cómo funciona →</a>`;
     } else if (total <= 21) {
-      badgeText = 'Vas por buen camino, pero…';
+      badgeText = 'Vas bien, pero hay fugas importantes';
       badgeClass = 'badge-mid';
-      titleText  = 'Tienes base, te falta afilar el mensaje';
-      descText   = 'Hay elementos que funcionan, pero otros están creando fricción. Con ajustes específicos en tu propuesta de valor y tu camino de acción, podrías convertir mucho más.';
+      titleText  = 'Tienes base sólida, pero algo se escapa';
+      descText   = 'Tu operación funciona en horario regular, pero hay puntos ciegos — probablemente noches, fines de semana o picos de demanda — donde los leads se enfrían antes de que puedas atenderlos. Esas fugas silenciosas se acumulan.';
+      ctaHTML    = `<p>Con los ajustes correctos y el apoyo de <strong>Inteligencia Artificial</strong>, esos puntos ciegos desaparecen y tu conversión puede aumentar significativamente.</p><a href="https://www.kevindelazota.com" class="btn-cta" target="_blank">Explorar solución con IA →</a>`;
     } else {
-      badgeText = '¡Tu negocio es fácil de comprar!';
+      badgeText = '¡Operación lista para escalar!';
       badgeClass = 'badge-high';
-      titleText  = 'Tienes un marketing claro y efectivo';
-      descText   = 'Tu propuesta está bien articulada, tu diferenciación es visible y le dejas el camino despejado a tus clientes. Estás en una posición sólida. El siguiente paso es escalar lo que ya funciona.';
+      titleText  = 'Estás en el nivel de Rick';
+      descText   = 'Tu inmobiliaria responde rápido, filtra bien y tus agentes se enfocan en cerrar. Tienes una operación sólida. Ahora la pregunta es: ¿cómo escalar lo que ya funciona sin que los costos se disparen?';
+      ctaHTML    = `<p>Las inmobiliarias de alto rendimiento combinan <strong>procesos eficientes + IA</strong> para crecer sin límites. El siguiente nivel te está esperando.</p><a href="https://www.kevindelazota.com" class="btn-cta" target="_blank">Ver cómo seguir escalando →</a>`;
     }
 
     document.getElementById('resultScore').textContent       = total;
@@ -866,13 +749,14 @@
     document.getElementById('resultBadge').className         = 'result-badge ' + badgeClass;
     document.getElementById('resultTitle').textContent       = titleText;
     document.getElementById('resultDescription').textContent = descText;
+    document.getElementById('resultCta').innerHTML           = ctaHTML;
 
-    let html = '<h4>Resultados por área</h4>';
-    sectionScores.forEach(s => {
+    let html = '<h4>Diagnóstico por área</h4>';
+    sections.forEach(s => {
       const score = s.qs.reduce((acc, q) => acc + (answers[q] || 0), 0);
-      let dot = 'dot-green', note = 'Bien posicionado';
-      if (score <= 4)      { dot = 'dot-red';    note = 'Necesita trabajo urgente'; }
-      else if (score <= 6) { dot = 'dot-yellow'; note = 'Puede mejorar'; }
+      let dot = 'dot-green', note = 'Sin fugas detectadas';
+      if (score <= 4)      { dot = 'dot-red';    note = 'Área crítica — atención urgente'; }
+      else if (score <= 6) { dot = 'dot-yellow'; note = 'Hay mejoras importantes'; }
       html += `<div class="area-item"><div class="area-dot ${dot}"></div><span><strong>${s.label}</strong> — ${score}/9 · ${note}</span></div>`;
     });
     document.getElementById('resultAreas').innerHTML = html;
@@ -891,13 +775,9 @@
     document.getElementById('progressFill').style.width = '0%';
     document.getElementById('progressLabel').textContent = '0 de 9 respondidas';
     document.getElementById('btnResult').disabled = true;
-    document.getElementById('ctaHint').textContent = 'Responde todas las preguntas para ver tu resultado';
+    document.getElementById('ctaHint').textContent = 'Responde todas las preguntas para ver tu diagnóstico';
     document.getElementById('resultsSection').classList.remove('visible');
     window.scrollTo({ behavior: 'smooth', top: 0 });
-  }
-
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
   }
 </script>
 </body>
