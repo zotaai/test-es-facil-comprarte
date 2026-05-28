@@ -399,39 +399,117 @@
     .dot-yellow { background: #e6ac00; }
     .dot-green  { background: var(--yes-color); }
 
-    /* ─── CTA RESULT ─── */
-    .result-cta-box {
-      background: var(--navy);
-      border-radius: 12px;
-      padding: 28px 24px;
+    /* ─── RECOMMENDATIONS ─── */
+    .result-recommendations {
+      text-align: left;
       margin-bottom: 24px;
+    }
+
+    .result-recommendations h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      margin-bottom: 14px;
+    }
+
+    .rec-area {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 10px;
+    }
+
+    .rec-area-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .rec-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .dot-red    { background: var(--no-color); }
+    .dot-yellow { background: #e6ac00; }
+    .dot-green  { background: var(--yes-color); }
+
+    .rec-area-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .rec-area-score {
+      margin-left: auto;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .rec-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .rec-list li {
+      font-size: 0.85rem;
+      color: var(--text);
+      line-height: 1.55;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .rec-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ─── BTN IA ─── */
+    .btn-ia-wrap {
+      margin-bottom: 20px;
       text-align: center;
     }
 
-    .result-cta-box p {
-      color: rgba(255,255,255,0.8);
-      font-size: 0.9rem;
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-
-    .result-cta-box p strong { color: var(--accent); }
-
-    .btn-cta {
-      display: inline-block;
+    .btn-ia {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       background: linear-gradient(135deg, var(--accent-dark), var(--accent));
       color: white;
-      padding: 14px 36px;
-      border-radius: 8px;
+      padding: 16px 32px;
+      border-radius: 10px;
       font-family: 'Poppins', sans-serif;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       font-weight: 700;
       text-decoration: none;
-      transition: opacity 0.2s, transform 0.15s;
-      box-shadow: 0 4px 18px rgba(2,150,223,0.35);
+      transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 6px 24px rgba(2,150,223,0.35);
+      width: 100%;
+      justify-content: center;
+      text-align: center;
     }
 
-    .btn-cta:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-ia:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(2,58,191,0.35);
+    }
+
+    .btn-ia svg { flex-shrink: 0; }
+
+    .btn-ia-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-weight: 400;
+    }
 
     .btn-retry {
       background: transparent;
@@ -659,8 +737,14 @@
     <div class="result-badge" id="resultBadge"></div>
     <div class="result-title" id="resultTitle"></div>
     <div class="result-description" id="resultDescription"></div>
-    <div class="result-areas" id="resultAreas"></div>
-    <div class="result-cta-box" id="resultCta"></div>
+    <div class="result-recommendations" id="resultRecommendations"></div>
+    <div class="btn-ia-wrap">
+      <a href="https://Forms.delazota.com" class="btn-ia" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        ¿Un Agente IA es rentable para mi inmobiliaria?
+      </a>
+      <p class="btn-ia-sub">Descúbrelo en menos de 2 minutos →</p>
+    </div>
     <button class="btn-retry" onclick="resetQuiz()">↺ Repetir diagnóstico</button>
   </div>
 
@@ -710,28 +794,70 @@
       : 'Responde todas las preguntas para ver tu diagnóstico';
   }
 
+  const areaRecs = {
+    "Velocidad de respuesta": {
+      low: [
+        "Activa respuestas automáticas inmediatas en todos tus canales. El 78% de los compradores elige a quien responde primero.",
+        "Cubre los horarios nocturnos y fines de semana — son los momentos de mayor búsqueda activa de propiedades.",
+        "Mide tu tiempo promedio de primera respuesta. Sin ese dato, no puedes mejorarlo."
+      ],
+      mid: [
+        "Tu respuesta funciona en horario laboral, pero los leads fuera de horario se están enfriando. Cubre esos huecos.",
+        "Establece una meta clara: responder en menos de 5 minutos a cualquier hora del día."
+      ],
+      high: [
+        "Excelente velocidad de respuesta. Mantén ese estándar y asegúrate de que escale cuando aumentes tu inversión en marketing."
+      ]
+    },
+    "Eficiencia del equipo": {
+      low: [
+        "Separa el primer contacto del cierre. Tus mejores asesores no deben perder tiempo calificando leads fríos.",
+        "Crea un script de precalificación para filtrar automáticamente quién tiene intención real de comprar.",
+        "Calcula cuántas horas al día dedica tu equipo a chats iniciales — ese tiempo es tu mayor fuga de productividad."
+      ],
+      mid: [
+        "Tienes algo de filtrado, pero no es suficiente. Define criterios claros de calificación antes de pasar el lead al asesor.",
+        "Revisa el costo por lead atendido versus el costo por lead cerrado. La diferencia te dirá cuánto estás perdiendo."
+      ],
+      high: [
+        "Tu equipo está bien enfocado. Asegúrate de que ese proceso esté documentado y se replique cuando escales."
+      ]
+    },
+    "Escalabilidad del negocio": {
+      low: [
+        "Tu operación depende 100% de personas. Si se van o se enferman, las ventas se frenan — eso es un riesgo crítico.",
+        "Diseña tu proceso de atención como si tuvieras que atender 10 veces más leads mañana. ¿Qué necesitarías cambiar?",
+        "Automatiza el agendamiento de citas para que tus agentes lleguen a cada reunión con el lead ya calificado."
+      ],
+      mid: [
+        "Tienes algo de automatización, pero hay cuellos de botella cuando el volumen sube. Identifica dónde se rompe el proceso.",
+        "Construye sistemas que trabajen mientras tu equipo descansa. La escalabilidad real no depende del horario humano."
+      ],
+      high: [
+        "Tu modelo está preparado para crecer. El siguiente paso es optimizar la calidad de los leads que llegan, no solo la cantidad."
+      ]
+    }
+  };
+
   function showResult() {
     const total = Object.values(answers).reduce((a, b) => a + b, 0);
-    let badgeText, badgeClass, titleText, descText, ctaHTML;
+    let badgeText, badgeClass, titleText, descText;
 
     if (total <= 15) {
       badgeText = 'Operación con fricción crítica';
       badgeClass = 'badge-low';
       titleText  = 'Estás perdiendo ventas todos los días';
       descText   = 'Los leads llegan, pero la lentitud en la respuesta y los horarios muertos están regalando clientes a tu competencia. Cada hora sin responder es dinero que se va.';
-      ctaHTML    = `<p><strong>No necesitas más asesores, necesitas trabajar más inteligente.</strong> Un Agente de IA puede cambiar tu operación desde hoy.</p><a href="https://www.kevindelazota.com" class="btn-cta" target="_blank">Quiero saber cómo funciona →</a>`;
     } else if (total <= 21) {
       badgeText = 'Vas bien, pero hay fugas importantes';
       badgeClass = 'badge-mid';
       titleText  = 'Tienes base sólida, pero algo se escapa';
-      descText   = 'Tu operación funciona en horario regular, pero hay puntos ciegos — probablemente noches, fines de semana o picos de demanda — donde los leads se enfrían antes de que puedas atenderlos. Esas fugas silenciosas se acumulan.';
-      ctaHTML    = `<p>Con los ajustes correctos y el apoyo de <strong>Inteligencia Artificial</strong>, esos puntos ciegos desaparecen y tu conversión puede aumentar significativamente.</p><a href="https://www.kevindelazota.com" class="btn-cta" target="_blank">Explorar solución con IA →</a>`;
+      descText   = 'Tu operación funciona en horario regular, pero hay puntos ciegos — noches, fines de semana o picos de demanda — donde los leads se enfrían antes de que puedas atenderlos. Esas fugas silenciosas se acumulan.';
     } else {
       badgeText = '¡Operación lista para escalar!';
       badgeClass = 'badge-high';
       titleText  = '¡Tu operación está lista para escalar!';
-      descText   = 'Tu inmobiliaria responde rápido, filtra bien y tus agentes se enfocan en cerrar. Tienes una operación sólida. Ahora la pregunta es: ¿cómo escalar lo que ya funciona sin que los costos se disparen?';
-      ctaHTML    = `<p>Las inmobiliarias de alto rendimiento combinan <strong>procesos eficientes + IA</strong> para crecer sin límites. El siguiente nivel te está esperando.</p><a href="https://www.kevindelazota.com" class="btn-cta" target="_blank">Ver cómo seguir escalando →</a>`;
+      descText   = 'Tu inmobiliaria responde rápido, filtra bien y tus agentes se enfocan en cerrar. Tienes una operación sólida. La pregunta ahora es: ¿cómo seguir escalando sin que los costos se disparen?';
     }
 
     document.getElementById('resultScore').textContent       = total;
@@ -739,17 +865,29 @@
     document.getElementById('resultBadge').className         = 'result-badge ' + badgeClass;
     document.getElementById('resultTitle').textContent       = titleText;
     document.getElementById('resultDescription').textContent = descText;
-    document.getElementById('resultCta').innerHTML           = ctaHTML;
 
-    let html = '<h4>Diagnóstico por área</h4>';
+    // Recomendaciones por área
+    let recHTML = '<h4>Recomendaciones por área</h4>';
     sections.forEach(s => {
       const score = s.qs.reduce((acc, q) => acc + (answers[q] || 0), 0);
-      let dot = 'dot-green', note = 'Sin fugas detectadas';
-      if (score <= 4)      { dot = 'dot-red';    note = 'Área crítica — atención urgente'; }
-      else if (score <= 6) { dot = 'dot-yellow'; note = 'Hay mejoras importantes'; }
-      html += `<div class="area-item"><div class="area-dot ${dot}"></div><span><strong>${s.label}</strong> — ${score}/9 · ${note}</span></div>`;
+      let dot, level, recs;
+      if (score <= 4)      { dot = 'dot-red';    level = 'low';  }
+      else if (score <= 6) { dot = 'dot-yellow'; level = 'mid';  }
+      else                 { dot = 'dot-green';  level = 'high'; }
+      recs = areaRecs[s.label][level];
+      recHTML += `
+        <div class="rec-area">
+          <div class="rec-area-header">
+            <div class="rec-dot ${dot}"></div>
+            <div class="rec-area-title">${s.label}</div>
+            <div class="rec-area-score">${score}/9</div>
+          </div>
+          <ul class="rec-list">
+            ${recs.map(r => `<li>${r}</li>`).join('')}
+          </ul>
+        </div>`;
     });
-    document.getElementById('resultAreas').innerHTML = html;
+    document.getElementById('resultRecommendations').innerHTML = recHTML;
 
     const el = document.getElementById('resultsSection');
     el.classList.add('visible');
