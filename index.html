@@ -508,7 +508,34 @@
       font-size: 0.75rem;
       color: var(--text-muted);
       margin-top: 8px;
+      margin-bottom: 12px;
       font-weight: 400;
+    }
+
+    .btn-reunion {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--accent-dark);
+      border: 2px solid var(--accent-dark);
+      padding: 15px 32px;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .btn-reunion:hover {
+      background: var(--accent-dark);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(2,58,191,0.2);
     }
 
     .btn-retry {
@@ -590,12 +617,63 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 620px) {
-      .hero { padding: 48px 20px 44px; }
-      .options { flex-direction: column; }
-      .option-btn { min-width: unset; }
-      .closing-box { padding: 32px 22px; }
-      .closing-box p { font-size: 1.1rem; }
-      .results-section { padding: 32px 20px; }
+
+      /* Hero */
+      .hero { padding: 40px 20px 36px; }
+      .hero h1 { font-size: 1.75rem; letter-spacing: -0.3px; }
+      .hero .subhead { font-size: 0.92rem; }
+      .badge { font-size: 0.65rem; padding: 5px 14px; }
+
+      /* Quiz layout */
+      .quiz-wrapper { padding: 0 16px 60px; }
+
+      /* Section header */
+      .section-title { font-size: 0.92rem; }
+      .section-number { width: 30px; height: 30px; font-size: 0.8rem; }
+
+      /* Cards */
+      .question-card { padding: 18px 16px; }
+      .question-text { font-size: 0.88rem; margin-bottom: 14px; }
+
+      /* Opciones — apiladas en móvil */
+      .options { flex-direction: column; gap: 8px; }
+      .option-btn { min-width: unset; width: 100%; padding: 12px 10px; font-size: 0.85rem; }
+
+      /* CTA principal */
+      .btn-primary { width: 100%; padding: 16px 24px; font-size: 0.95rem; }
+
+      /* Results */
+      .results-section { padding: 28px 18px; }
+      .result-score { font-size: 3.5rem; }
+      .result-title { font-size: 1.2rem; }
+      .result-description { font-size: 0.88rem; }
+
+      /* Recommendations */
+      .rec-area { padding: 14px 14px; }
+      .rec-area-header { flex-wrap: wrap; gap: 6px; }
+      .rec-area-title { font-size: 0.85rem; }
+      .rec-area-score { margin-left: auto; }
+      .rec-list li { font-size: 0.82rem; }
+
+      /* Botones de acción */
+      .btn-ia { font-size: 0.88rem; padding: 15px 20px; gap: 8px; }
+      .btn-ia svg { width: 18px; height: 18px; flex-shrink: 0; }
+      .btn-reunion { font-size: 0.88rem; padding: 14px 20px; gap: 8px; }
+      .btn-reunion svg { width: 18px; height: 18px; flex-shrink: 0; }
+      .btn-retry { width: 100%; justify-content: center; }
+
+      /* Closing */
+      .closing { padding: 0 16px 48px; }
+      .closing-box { padding: 32px 20px; }
+      .closing-box p { font-size: 1.05rem; }
+      .closing-box .closing-sub { font-size: 0.78rem; }
+    }
+
+    /* Pantallas muy pequeñas */
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 1.5rem; }
+      .btn-ia { font-size: 0.82rem; }
+      .btn-reunion { font-size: 0.82rem; }
     }
   </style>
 </head>
@@ -744,6 +822,10 @@
         ¿Un Agente IA es rentable para mi inmobiliaria?
       </a>
       <p class="btn-ia-sub">Descúbrelo en menos de 2 minutos →</p>
+      <a href="https://cal.com/kdelazota/zota-reunion" class="btn-reunion" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Reservar mi sesión gratuita
+      </a>
     </div>
     <button class="btn-retry" onclick="resetQuiz()">↺ Repetir diagnóstico</button>
   </div>
